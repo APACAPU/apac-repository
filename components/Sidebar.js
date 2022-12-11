@@ -1,35 +1,43 @@
-// import Link from "next/link";
-// import Search from "../search.json";
-// import { slugify } from "../utils";
+import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
+import Footer from "./Footer";
+import Search from "./Search";
 
-export default function Sidebar() {
+export default function SideBar() {
   return (
-    <div className="col-lg-12 mb-2">
-      <div className="card mb-12 mb-2">
-        <div className="card-header">Categories</div>
-        <div className="card-body">
-          <div className="row">
-            <div className="col-sm-0">
-              <a href="/category/next" class="btn">
-                Next
-              </a>
-              <a href="/category/react" class="btn">
-                React
-              </a>
-              {/* {Search?.map((post) => {
-                return post.frontmatter.categories.map((item) => {
-                  const slug = slugify(item);
-                  return (
-                    <Link key={item} href={`/category/${slug}`}>
-                      <button className="btn"> {item} </button>
-                    </Link>
-                  );
-                });
-              })} */}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Flex
+      as="nav"
+      pos="fixed"
+      left={0}
+      height="100vh"
+      w={72}
+      justifyContent="space-between"
+      flexDir="column"
+      px={4}
+      borderRightColor="gray.300"
+      borderRightWidth="1px"
+      borderRightStyle="solid"
+      pt={6}
+      pb={1}
+      bg="teal.900"
+    >
+      <Box>
+        <Link href="/">
+          <Image src="/images/apac-logo.png" alt="APAC Logo" w="52" mx="auto" />
+          <Text
+            textAlign="center"
+            fontSize="2xl"
+            fontWeight="bold"
+            color="white"
+            as="h1"
+            mt="2"
+          >
+            APAC Repository
+          </Text>
+        </Link>
+        <Search />
+        {/* TODO: Put categories here */}
+      </Box>
+      <Footer />
+    </Flex>
   );
 }

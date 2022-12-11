@@ -36,8 +36,8 @@ export default function Search() {
         <div className="row">
           {posts.length > 0 ? (
             posts.map((post, index) => (
-              <div className="col-lg-4">
-                <Post key={index} post={post} />
+              <div className="col-lg-4" key={index}>
+                <Post post={post} />
               </div>
             ))
           ) : (

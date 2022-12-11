@@ -1,18 +1,17 @@
 import Link from "next/link";
 import { slugify } from "../utils";
-import Image from "next/image";
+import { AspectRatio, Flex, Image } from "@chakra-ui/react";
 
 export default function Post({ post }) {
   return (
-    <div className="card mb-4">
+    <Flex>
       <Link href={`/project/${post.slug}`}>
-        <Image
-          className="card-img-top"
-          width={400}
-          height={235}
-          alt={post.frontmatter.title}
-          src={`/${post.frontmatter.socialImage}`}
-        />
+        <AspectRatio ratio="1" w={52}>
+          <Image
+            alt={post.frontmatter.title}
+            src={`/${post.frontmatter.socialImage}`}
+          />
+        </AspectRatio>
       </Link>
       <div className="card-body">
         <div className="small text-muted">{post.frontmatter.date}</div>
@@ -37,6 +36,6 @@ export default function Post({ post }) {
           <a className="btn">Read More</a>
         </Link>
       </div>
-    </div>
+    </Flex>
   );
 }
